@@ -2,6 +2,8 @@ var log = function(string) {
     console.log(string);
 };
 
+
+
 // Codenjoy server host ip
 var hostIp = 'tetrisj.jvmhost.net';
 var port = 12270;
