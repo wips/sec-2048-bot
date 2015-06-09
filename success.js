@@ -35,74 +35,8 @@ ws.on('message', function(message) {
     ws.send(result);
 });
 
-var SIZE = 5;
 var previousMsg = '';
-var previousMove = '';
 // The method which will be used to send commands to Codenjoy server
-
-var vertical = function(i, msg){
-    return msg[i * SIZE] +
-        msg[i+1 * SIZE] +
-        msg[i+2 * SIZE] +
-        msg[i+3 * SIZE] +
-        msg[i+4 * SIZE];
-}
-
-var horisontal = function(i, msg){
-    return msg.substr(i * SIZE, (i + 1) * SIZE);
-}
-
-
-
-function answer(msg) {
-    SIZE = Math.sqrt(msg.length);
-    var horizontalScore = 0;
-    var left = 0;
-    var right = 0;
-    var scoreObject = 0;
-    for (var i = 0; i < SIZE; i++) {
-        scoreObject = calcScore(horisontal(i, msg)).score;
-        horizontalScore += scoreObject.score;
-        if (scoreObject.maxIndex > 3) {
-            right++;
-        } else {
-            left++;
-        }
-    }
-
-
-    var up = 0;
-    var down = 0;
-    var verticalScore = 0;
-    for (i = 0; i < SIZE; i++) {
-        scoreObject = calcScore(vertical(i, msg)).score;
-        verticalScore += scoreObject.score;
-        if (scoreObject.maxIndex > Math.round(SIZE / 2)) {
-            up++;
-        } else {
-            down++;
-        }
-    }
-
-
-    var move = ['right', 'left', 'up', 'down'][Math.floor(Math.random() * 4)] + "=1";
-
-    if (horizontalScore > verticalScore) {
-        if (previousMsg !== msg) {
-            move = right > left ? 'right=1' : 'left=1';
-        }
-    } else {
-        if (previousMsg !== msg) {
-            move = up > down ? 'up=1' : 'down=1';
-        }
-    }
-    log(previousMsg + ' = ' + msg);
-    previousMsg = msg;
-    previousMove = move;
-    return move;
-}
-
-
 var withoutSpaces = function(list){
     var noSpaces = [];
 
@@ -115,6 +49,7 @@ var withoutSpaces = function(list){
 
     return noSpaces;
 };
+
 var decode = function(noSpaces){
     var numbers = [];
     var dict = {
@@ -149,10 +84,21 @@ var decode = function(noSpaces){
     return numbers;
 };
 
-function calcScore(list) {
+var vertical = function(i, msg, SIZE){
+    return msg[i * SIZE] +
+        msg[i+1 * SIZE] +
+        msg[i+2 * SIZE] +
+        msg[i+3 * SIZE] +
+        msg[i+4 * SIZE];
+}
 
-    var noSpaces = withoutSpaces(list);
+var horisontal = function(i, msg,SIZE){
+    return msg.substr(i * SIZE, (i + 1) * SIZE);
+}
 
+function calcScore(line) {
+
+    var noSpaces = withoutSpaces(line);
     var numbers = decode(noSpaces);
 
     var score = 0;
@@ -165,14 +111,67 @@ function calcScore(list) {
             }
             maxList.push(possibleScore);
         } else {
-            //score += numbers[i];
             maxList.push(numbers[i]);
         }
     }
-
 
     return {
         score: score,
         maxIndex: maxList.indexOf(Math.max(maxList))
     };
 }
+
+var calckDirectionScore = function(msg, msgSize, directionCalback){
+    var oneDirection = 0;
+    var otherDirection = 0;
+    var directionScore = 0;
+    var scoreObject = 0;
+    
+    for (var i = 0; i < msgSize; i++) {
+        scoreObject = calcScore(directionCalback(i, msg, msgSize)).score;
+        directionScore += scoreObject.score;
+        if (scoreObject.maxIndex > Math.round(msgSize / 2)) {
+            oneDirection++;
+        } else {
+           otherDirection++;
+        }
+    }
+    
+    return {
+        oneDirection:oneDirection, 
+        otherDirection:otherDirection
+    };
+    
+}
+
+var chooseDirection = function(vertical, horizontal, msg){
+    if (horizontal > vertical) {
+        if (previousMsg !== msg) {
+            return horizontal.oneDirection > horizontal.otherDirection ? 'right=1' : 'left=1';
+        }
+    } else {
+        if (previousMsg !== msg) {
+            return  vertical.oneDirection  > vertical.otherDirection? 'up=1' : 'down=1';
+        }
+    }
+   
+   return  ['right', 'left', 'up', 'down'] [Math.floor(Math.random() * 4)] + "=1";
+}
+
+
+function answer(msg) {
+    var SIZE = Math.sqrt(msg.length); //var SIZE = 5;
+    
+    var verticalScore = calckDirectionScore(msg, SIZE, vertical);
+    var horizontalScore = calckDirectionScore(msg, SIZE, horisontal);
+    
+    var move = chooseDirection(verticalScore, horizontalScore, msg);    
+    previousMsg = msg;    
+    return move;
+}
+
+
+
+
+
+
