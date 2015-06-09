@@ -1,6 +1,9 @@
 {
-  "devDependencies": {
+  "dependencies": {
     "lodash": "^3.9.3",
     "ws": "^0.7.2"
+  },
+  "devDependencies": {
+    "should": "^6.0.3"
   }
 }
