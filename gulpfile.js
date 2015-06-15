@@ -4,7 +4,9 @@ var watch = require('gulp-watch');
 
 
 gulp.task('watch', ['test'], function () {
-    watch('src/**/*.js', ['test']);
+    watch('src/**/*.js', function(){
+        gulp.start('test');
+    });
 });
 
 gulp.task('test', function () {
