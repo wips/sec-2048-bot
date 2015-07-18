@@ -14,7 +14,8 @@ ConnectionBuilder.prototype.setPort = function(port) {
  * @returns {string}
  */
 ConnectionBuilder.prototype.toString = function() {
-  return 'ws://' + this._host + ':' + this._port;
+  //return 'ws://' + this._host + ':' + this._port;
+  return `ws://${this._host}:${this._port}`;
 
 };
 

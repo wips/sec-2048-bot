@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+  
+  <testsuite name="ConnectionBuilder.spec.js"
+             errors="2"
+             failures="0"
+             tests="2">
+    
+      
+      <testcase name="setHost">
+        
+          <failure message="Cannot read property 'setHost' of undefined">
+            TypeError: Cannot read property 'setHost' of undefined
+    at Object.module.exports.setHost (/Users/wips/projects/sec-2048-bot/src/ConnectionBuilder.spec.js:12:17)
+    at Object.&lt;anonymous&gt; (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:236:16)
+    at /Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:236:16
+    at Object.exports.runTest (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:70:9)
+    at /Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:118:25
+    at /Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:513:13
+    at iterate (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:123:13)
+    at async.forEachSeries (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:139:9)
+    at _concat (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:512:9)
+    at Object.concatSeries (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:152:23)
+          </failure>
+        
+      </testcase>
+    
+      
+      <testcase name="setPort">
+        
+          <failure message="Cannot read property 'setPort' of undefined">
+            TypeError: Cannot read property 'setPort' of undefined
+    at Object.module.exports.setPort (/Users/wips/projects/sec-2048-bot/src/ConnectionBuilder.spec.js:18:17)
+    at Object.&lt;anonymous&gt; (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:236:16)
+    at /Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:236:16
+    at Object.exports.runTest (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:70:9)
+    at /Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:118:25
+    at /Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:513:13
+    at iterate (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:123:13)
+    at /Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:134:25
+    at /Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/deps/async.js:515:17
+    at Immediate._onImmediate (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/types.js:146:17)
+          </failure>
+        
+      </testcase>
+    
+  </testsuite>
+

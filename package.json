@@ -4,8 +4,12 @@
     "ws": "^0.7.2"
   },
   "devDependencies": {
+    "gulp-babel": "^5.1.0",
     "gulp-nodeunit": "0.0.5",
     "gulp-watch": "^4.2.4",
     "should": "^6.0.3"
+  },
+  "scripts": {
+    "test": "node --harmony `which gulp` test"
   }
 }
