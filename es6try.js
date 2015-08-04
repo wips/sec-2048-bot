@@ -1,4 +1,4 @@
-var ConnectionBuilder = require('./src/ConnectionBuilder');
+var ConnectionBuilder = require('./src/ConnectionStringBuilder');
 
 var connectionBuilder = new ConnectionBuilder();
 connectionBuilder.setHost('sss');

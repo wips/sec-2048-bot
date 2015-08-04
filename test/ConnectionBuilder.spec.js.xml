@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
   
-  <testsuite name="ConnectionBuilder.spec.js"
+  <testsuite name="ConnectionStringBuilder.spec.js"
              errors="2"
              failures="0"
              tests="2">
@@ -11,7 +11,7 @@
         
           <failure message="Cannot read property 'setHost' of undefined">
             TypeError: Cannot read property 'setHost' of undefined
-    at Object.module.exports.setHost (/Users/wips/projects/sec-2048-bot/src/ConnectionBuilder.spec.js:12:17)
+    at Object.module.exports.setHost (/Users/wips/projects/sec-2048-bot/src/ConnectionStringBuilder.spec.js:12:17)
     at Object.&lt;anonymous&gt; (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:236:16)
     at /Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:236:16
     at Object.exports.runTest (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:70:9)
@@ -30,7 +30,7 @@
         
           <failure message="Cannot read property 'setPort' of undefined">
             TypeError: Cannot read property 'setPort' of undefined
-    at Object.module.exports.setPort (/Users/wips/projects/sec-2048-bot/src/ConnectionBuilder.spec.js:18:17)
+    at Object.module.exports.setPort (/Users/wips/projects/sec-2048-bot/src/ConnectionStringBuilder.spec.js:18:17)
     at Object.&lt;anonymous&gt; (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:236:16)
     at /Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:236:16
     at Object.exports.runTest (/Users/wips/projects/sec-2048-bot/node_modules/gulp-nodeunit/node_modules/nodeunit/lib/core.js:70:9)
